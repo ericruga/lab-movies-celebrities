@@ -1,9 +1,7 @@
 const router = require("express").Router();
 const Celebrity = require("../models/Celebrity.model")
 /* GET celebrities page */
-router.get("/", (req, res, next) => {
-  res.render("celebrities/celebrities.hbs");
-});
+
 
 router.get("/create", (req, res, next) => {
     res.render("celebrities/new-celebrity.hbs");
@@ -20,5 +18,16 @@ router.post("/create", (req, res, next) => {
         res.render("celebrities/new-celebrity.hbs");
       });
   });
+
+  router.get("/", (req, res, next) => {
+    Celebrity.find()
+    .then((allCelebrities) => {
+        console.log(allCelebrities);
+        res.render("celebrities/celebrities.hbs", {allCelebrities})
+    })
+    .catch((error) => {
+        console.log(error);  
+      });  
+    });
 
 module.exports = router;
