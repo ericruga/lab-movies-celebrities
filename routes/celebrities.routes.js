@@ -1,5 +1,5 @@
 const router = require("express").Router();
-
+const Celebrity = require("../models/Celebrity.model")
 /* GET celebrities page */
 router.get("/", (req, res, next) => {
   res.render("celebrities/celebrities.hbs");
@@ -13,7 +13,7 @@ router.post("/create", (req, res, next) => {
 
     const {name,occupation, catchPhrase}= req.body;
 
-    Model.create({ name, occupation, catchPhrase })
+    Celebrity.create({ name, occupation, catchPhrase })
     .then(() => res.redirect("/celebrities"))
     .catch((error) => {
         console.log(error);
