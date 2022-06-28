@@ -13,9 +13,9 @@
     <label for="name-select"> Actor:
     <select name="name">
     
-      {{!-- {{#each dbUsers}}
-        <option value="{{this._id}}"> {{this.username}} </option>
-      {{/each}} --}}
+      {{#each dbCelebrities}}
+        <option value="{{this._id}}"> {{this.name}} </option>
+      {{/each}} 
     </select>
   </label>
 
