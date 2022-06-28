@@ -1,15 +1,15 @@
 const router = require("express").Router();
 
 /* GET celebrities page */
-router.get("/celebrities", (req, res, next) => {
-  res.render("celebrities");
+router.get("/", (req, res, next) => {
+  res.render("celebrities/celebrities.hbs");
 });
 
-router.get("/celebrities/create", (req, res, next) => {
-    res.render("celebrities/new-celebrity");
+router.get("/create", (req, res, next) => {
+    res.render("celebrities/new-celebrity.hbs");
   });
 
-router.post("/celibrities/create", (req, res, next) => {
+router.post("/create", (req, res, next) => {
 
     const {name,occupation, catchPhrase}= req.body;
 
@@ -17,7 +17,8 @@ router.post("/celibrities/create", (req, res, next) => {
     .then(() => res.redirect("/celebrities"))
     .catch((error) => {
         console.log(error);
-        res.render("celebrities/new-celebrity");
+        res.render("celebrities/new-celebrity.hbs");
       });
   });
+
 module.exports = router;

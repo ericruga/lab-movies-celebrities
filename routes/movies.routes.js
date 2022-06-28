@@ -1,8 +1,8 @@
 const router = require("express").Router();
 
 /* GET movies page */
-router.get("/movies", (req, res, next) => {
-  res.render("movies");
+router.get("/", (req, res, next) => {
+  res.render("movies/movies.hbs");
 });
 
 module.exports = router;

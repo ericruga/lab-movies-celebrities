@@ -30,7 +30,7 @@ app.use('/', index);
 // Creating celebrities routes
 const celebrities = require('./routes/celebrities.routes');
 app.use('/celebrities', celebrities);
-// Creating celebrities routes
+// Creating movies routes
 const movies = require('./routes/movies.routes');
 app.use('/movies', movies);
 
